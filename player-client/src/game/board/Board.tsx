@@ -1,4 +1,4 @@
-import image from "../../assets/img/board.jpg";
+import boardBG from "/assets/board.jpg";
 import "./Board.css"
 
 import { default as Location } from "./Location";
@@ -9,7 +9,7 @@ export default function Board() {
 
     return (
         <div className="game-board" style={{
-            backgroundImage: `url(${image})`
+            backgroundImage: `url(${boardBG})`
         }}>
             {location1}
         </div>
