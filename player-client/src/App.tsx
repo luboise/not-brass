@@ -1,13 +1,14 @@
-import './App.css';
+import './App.css'
 
-import { Board } from './game';
+import { Board } from "./game";
 
 function App() {
-    return (
-        <div className="App">
-            <Board />
-        </div>
-    );
+
+  return (
+    <>
+      <Board />
+    </>
+  )
 }
 
-export default App;
+export default App
