@@ -1,15 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import { Board } from './GameAssets';
+import { Board } from './game';
 
 function App() {
-  return (
-    <div className="App">
-      <Board />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Board />
+        </div>
+    );
 }
 
 export default App;
