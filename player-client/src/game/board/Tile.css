@@ -1,4 +1,14 @@
-game-board-tile {
-	width: 108px;
-	height: 108px;
+.game-board-tile {
+	box-sizing: border-box;
+	padding: auto auto auto 50%;
+	width: 50%;
+
+	background-color: black;
+	border: silver 0.2em solid;
+
+	border-radius: 5%;
 } 
+
+.game-board-tile::after {
+	padding-bottom: 50%;
+}

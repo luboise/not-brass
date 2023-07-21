@@ -1,4 +1,4 @@
-import { Colour, BoardPos} from "@utils/Types";
+import { Colour, BoardPos, Industry, PlayerNum} from "@utils/Types";
 
 export interface LocationProps {
 	name: string;
@@ -7,6 +7,7 @@ export interface LocationProps {
 }
 
 export type TileOptions = {
-    name: string,
-    age: Number
+    industry1: Industry;
+	industry2?: Industry;
+	player?: PlayerNum;
 };

@@ -1,0 +1,10 @@
+.game-board-location {
+	position: relative;
+	box-sizing: border-box;
+	width: 120px;
+	border: black solid 0.3em;
+}
+
+.location-tile-container {
+	display: flex;
+}

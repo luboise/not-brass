@@ -5,7 +5,7 @@ import { default as Location } from "./Location";
 
 export default function Board() {
     // const LOCATIONS = useRef([<Location {} />])
-    const location1 = <Location name={"test1"} colour="#000000" pos={[0.5, 0.5]} />;
+    const location1 = <Location name={"Uttoxeter"} colour="#0000FF" pos={[0.5, 0.5]} />;
 
     return (
         <div className="game-board" style={{
@@ -14,4 +14,4 @@ export default function Board() {
             {location1}
         </div>
     )
-};
+}
