@@ -3,13 +3,23 @@
 	box-sizing: border-box;
 	width: 120px;
 	border: black solid 0.3em;
+
+	transform: translate(-50%, -50%);
 }
 
 .location-tile-container {
 	width: 100%;
+	position: relative;
+
+
+
+
 	display: flex;
-	
 	flex-wrap: wrap-reverse;
 	justify-content: center;
 	align-items: end;
+}
+
+.location-title-container {
+
 }
