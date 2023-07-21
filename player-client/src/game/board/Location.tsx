@@ -1,11 +1,9 @@
-import React from 'react'
-
 import "./Location.css";
 
 import { LocationProps } from "./BoardTypes";
 
 import { default as Tile } from './Tile';
-import { TILE_WIDTH } from '@utils/Constants';
+import { TILE_WIDTH } from "../../utils/Constants";
 
 export default function Location(props: LocationProps) {
 	return (
