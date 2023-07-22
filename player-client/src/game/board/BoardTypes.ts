@@ -7,7 +7,7 @@ export interface LocationProps {
 	tiles: TileOptions[];
 }
 
-export type TileOptions = {
+export interface TileOptions {
 	industry1: Industry;
 	industry2?: Industry;
 	player?: PlayerNum;

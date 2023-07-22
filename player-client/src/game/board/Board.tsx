@@ -3,11 +3,32 @@ import "./Board.css"
 
 import { default as Location } from "./Location";
 import { LocationProps } from "./BoardTypes";
+import { INDUSTRIES } from "../../utils/Constants";
 
 const BOARD_LOCATIONS: LocationProps[] = [
-    { name: "Uttoxeter", colour: "#0000FF", pos: [0.5655, 0.2745], tiles: [{ industry1: "ManuGoods", industry2: "Beer" }, { industry1: "Cotton", industry2: "Beer" }] },
-    { name: "Derby", colour: "#3a5f3a", pos: [0.7575, 0.2985], tiles: [{ industry1: "Cotton", industry2: "ManuGoods" }, { industry1: "Iron" }, { industry1: "Cotton", industry2: "Beer" },] },
-    { name: "Belper", colour: "#3a5f3a", pos: [0.756, 0.1445], tiles: [{ industry1: "Cotton", industry2: "ManuGoods" }, { industry1: "Coal" }, { industry1: "Pottery" },] }
+    {
+        name: "Uttoxeter", colour: "#0000FF", pos: [0.5655, 0.2745],
+        tiles: [
+            { industry1: INDUSTRIES["ManuGoods"], industry2: INDUSTRIES["Beer"] },
+            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["Beer"] }
+        ]
+    },
+    {
+        name: "Derby", colour: "#3a5f3a", pos: [0.7575, 0.2985],
+        tiles: [
+            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["ManuGoods"] },
+            { industry1: INDUSTRIES["Iron"] },
+            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["Beer"] }
+        ]
+    },
+    {
+        name: "Belper", colour: "#3a5f3a", pos: [0.756, 0.1445],
+        tiles: [
+            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["ManuGoods"] },
+            { industry1: INDUSTRIES["Coal"] },
+            { industry1: INDUSTRIES["Pottery"] }
+        ]
+    }
 ];
 
 export default function Board() {
