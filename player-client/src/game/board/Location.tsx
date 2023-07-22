@@ -9,28 +9,33 @@ const DEFAULT_WRAP_FREQUENCY = 2;
 
 export default function Location(props: LocationProps) {
 	// Number of tiles we want to shift by (1 per 2 tiles)
-	let numTiles;
+	let tileStackHeight;
 	let containerWidthStyling: React.CSSProperties = {};
 
-	// If wrap frequency is 0, do not wrap
+	// If wrap frequency is 0, do not wrap (stack is 1 tall)
 	if (props.wrapFrequency === 0) {
-		numTiles = Number(Boolean(props.tiles.length));
+		tileStackHeight = props.tiles.length ? 1 : 0;
 	} else {
-		numTiles = Math.floor((props.tiles.length + 1) / (props.wrapFrequency || DEFAULT_WRAP_FREQUENCY));
+		// Find height in tiles to shift later
+		tileStackHeight = Math.floor((props.tiles.length + 1) / (props.wrapFrequency || DEFAULT_WRAP_FREQUENCY));
+
+		// Set stack width to force overflow
 		containerWidthStyling.width = `calc(${TILE_WIDTH}*${props.wrapFrequency || DEFAULT_WRAP_FREQUENCY})`;
 	}
 
 	// Half the height of the tiles
-	const tileOffsetCalcStr = `(${TILE_WIDTH} * ${numTiles} / 2)`
+	const tileOffsetCalcStr = `(${TILE_WIDTH} * ${tileStackHeight} / 2)`
 
-	return (
-		<div className='game-board-location' style={{
-			left: `${props.pos[0] * 100}%`,
-			top: `${props.pos[1] * 100}%`,
-			transform: `translate(-50%,
+	const locationStyle: React.CSSProperties = {
+		left: `${props.pos[0] * 100}%`,
+		top: `${props.pos[1] * 100}%`,
+		transform: `translate(-50%,
 				calc(-50% - ${tileOffsetCalcStr})
 				)`
-		}}>
+	};
+
+	return (
+		<div className='game-board-location' style={locationStyle}>
 			<div className="location-tile-container" style={containerWidthStyling}>
 				<>
 					{props.tiles.map((tile, i) => { return <Tile {...tile} key={i} /> })}

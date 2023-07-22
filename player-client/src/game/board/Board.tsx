@@ -41,7 +41,7 @@ const BOARD_LOCATIONS: LocationProps[] = [
         ]
     },
     {
-        name: "Birmingham", colour: red, pos: [0.6275, 0.7325],
+        name: "Birmingham", colour: purple, pos: [0.6275, 0.7325],
         tiles: [
             { industry1: INDUSTRIES["Iron"] },
             { industry1: INDUSTRIES["Goods"] },
@@ -65,7 +65,7 @@ export default function Board() {
         <div className="game-board" style={{
             backgroundImage: `url(${boardBG})`
         }}>
-            {BOARD_LOCATIONS.map((locationProps, i) => { return <Location {...locationProps} key={i} /> })}
+            {BOARD_LOCATIONS.map((locProps, i) => { return <Location {...locProps} key={i} /> })}
         </div>
     )
 }

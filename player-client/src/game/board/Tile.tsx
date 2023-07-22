@@ -4,7 +4,7 @@ import { TileOptions } from './BoardTypes';
 import { TILE_WIDTH } from '../../utils/Constants';
 import Image from "../global/Image";
 
-const MULTIPLE_ICON_SCALE = 0.6;
+const MULTIPLE_ICON_SCALE = 0.7;
 
 export default function Tile(props: TileOptions) {
     return (
@@ -16,15 +16,11 @@ export default function Tile(props: TileOptions) {
                     props.industry2 ?
                         (<>
                             <Image src={props.industry1.mainIconPath} align="tl" key="1"
-                                width={`${MULTIPLE_ICON_SCALE * 100}%`}
-                                height={`${MULTIPLE_ICON_SCALE * 100}%`} />
+                                scale={MULTIPLE_ICON_SCALE} />
                             <Image src={props.industry2.mainIconPath} align="br" key="2"
-                                width={`${MULTIPLE_ICON_SCALE * 100}%`}
-                                height={`${MULTIPLE_ICON_SCALE * 100}%`} />
+                                scale={MULTIPLE_ICON_SCALE} />
                         </>) :
-                        <Image src={props.industry1.mainIconPath}
-                            width="100%"
-                            height="100%" />
+                        <Image src={props.industry1.mainIconPath} scale={1} />
                 }
             </div>
         </div >

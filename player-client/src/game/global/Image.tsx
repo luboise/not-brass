@@ -7,15 +7,12 @@ export const imageOnError: ReactEventHandler<HTMLImageElement> = ({ currentTarge
     currentTarget.src = "assets/placeholder.png";
 }
 
-export default function Image(props: { src: string, align?: string, width?: string, height?: string }) {
+export default function Image(props: { src: string, align?: string, scale?: number }) {
     const imgStyle: React.CSSProperties = {};
 
-    if (props.height) {
-        imgStyle.height = props.height;
-    };
-
-    if (props.width) {
-        imgStyle.width = props.width;
+    if (props.scale) {
+        imgStyle.height = `${props.scale * 100}%`;
+        imgStyle.width = `${props.scale * 100}%`;
     }
 
     if (props.align) {

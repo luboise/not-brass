@@ -8,7 +8,6 @@ export type PlayerNum = 1 | 2 | 3 | 4;
 
 export interface Industry {
 	name: string,
-	
 	mainIconPath: string,
 }
 
