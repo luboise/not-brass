@@ -1,4 +1,3 @@
-import { IndustryRecord } from '@utils/Types';
 import './App.css'
 
 import { Board } from "./game";

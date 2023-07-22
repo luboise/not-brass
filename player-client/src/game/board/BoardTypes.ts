@@ -1,4 +1,4 @@
-import { Colour, BoardPos, Industry, PlayerNum } from "@utils/Types";
+import { Colour, BoardPos, Industry, PlayerNum } from "utils/Types"; 
 
 export interface LocationProps {
 	name: string;

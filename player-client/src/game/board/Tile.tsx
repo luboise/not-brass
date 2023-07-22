@@ -1,9 +1,8 @@
-import React from 'react'
 import "./Tile.css"
 
 import { TileOptions } from './BoardTypes';
 import { TILE_WIDTH } from '../../utils/Constants';
-import { Industry } from '@utils/Types';
+import { imageOnError } from '../../utils/Functions';
 
 // function getIndustryImagePath(ind: Industry) {
 //     let testpath;
@@ -17,18 +16,12 @@ import { Industry } from '@utils/Types';
 // }
 
 export default function Tile(props: TileOptions) {
-    const basesrc = `/assets/industry/${props.industry1}`;
-
     return (
         <div className='game-board-tile'
             style={{ width: TILE_WIDTH, height: TILE_WIDTH }}
         >
             <div className='tile-image-container'>
-                <img src={props.industry1.mainIconPath} onError={({ currentTarget }) => {
-                    currentTarget.onerror = null;
-                    currentTarget.src = "assets/placeholder.png";
-                    currentTarget.alt = "Placeholder image";
-                }} />
+                <img src={props.industry1.mainIconPath} onError={imageOnError} />
             </div>
         </div>
     )

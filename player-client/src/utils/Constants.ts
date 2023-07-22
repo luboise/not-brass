@@ -13,7 +13,7 @@ const INDUSTRY_LIST: Industry[] = [
 
 export const INDUSTRY_ASSET_PATH = "/assets/industry/"
 
-function getIndustries(inds: Industry[]) {
+function getIndustries() {
 	const returnVar: IndustryRecord = {};
 	
 	for (const ind of INDUSTRY_LIST){
@@ -24,4 +24,4 @@ function getIndustries(inds: Industry[]) {
 	return returnVar;
 }
 
-export const INDUSTRIES: IndustryRecord = getIndustries(INDUSTRY_LIST)
+export const INDUSTRIES: IndustryRecord = getIndustries()

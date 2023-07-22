@@ -22,9 +22,9 @@
 
     /* Extra Paths */
     "baseUrl": "src",
-    "paths": {
-      "@utils/*": ["utils/*"],
-    },
+    // "paths": {
+    //   "@utils/*": ["utils/*"],
+    // },
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
