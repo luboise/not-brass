@@ -1,6 +1,6 @@
 import { Industry, IndustryRecord } from "./Types";
 
-export const TILE_WIDTH = "46px";
+export const TILE_WIDTH = "48px";
 
 const INDUSTRY_LIST: Industry[] = [
 	{name: "Coal", mainIconPath: "coal.svg"},

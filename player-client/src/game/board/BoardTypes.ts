@@ -5,6 +5,7 @@ export interface LocationProps {
 	colour: Colour;
 	pos: BoardPos;
 	tiles: TileOptions[];
+	wrapFrequency?: number;
 }
 
 export interface TileOptions {

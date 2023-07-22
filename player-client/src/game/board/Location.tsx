@@ -5,10 +5,22 @@ import { LocationProps } from "./BoardTypes";
 import { default as Tile } from './Tile';
 import { TILE_WIDTH } from "../../utils/Constants";
 
+const DEFAULT_WRAP_FREQUENCY = 2;
+
 export default function Location(props: LocationProps) {
 	// Number of tiles we want to shift by (1 per 2 tiles)
-	const numTiles = Math.floor((props.tiles.length + 1) / 2)
+	let numTiles;
+	let containerWidthStyling: React.CSSProperties = {};
 
+	// If wrap frequency is 0, do not wrap
+	if (props.wrapFrequency === 0) {
+		numTiles = Number(Boolean(props.tiles.length));
+	} else {
+		numTiles = Math.floor((props.tiles.length + 1) / (props.wrapFrequency || DEFAULT_WRAP_FREQUENCY));
+		containerWidthStyling.width = `calc(${TILE_WIDTH}*${props.wrapFrequency || DEFAULT_WRAP_FREQUENCY})`;
+	}
+
+	// Half the height of the tiles
 	const tileOffsetCalcStr = `(${TILE_WIDTH} * ${numTiles} / 2)`
 
 	return (
@@ -19,9 +31,7 @@ export default function Location(props: LocationProps) {
 				calc(-50% - ${tileOffsetCalcStr})
 				)`
 		}}>
-			<div className="location-tile-container" style={{
-				width: `calc(${TILE_WIDTH}*2)`,
-			}}>
+			<div className="location-tile-container" style={containerWidthStyling}>
 				<>
 					{props.tiles.map((tile, i) => { return <Tile {...tile} key={i} /> })}
 				</>
