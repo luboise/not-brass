@@ -1,4 +1,7 @@
 .game-board-tile {
+	text-align: center;
+
+	position: relative;
 	box-sizing: border-box;
 
 	background-color: black;
@@ -7,6 +10,16 @@
 	border-radius: 5%;
 } 
 
-.game-board-tile::after {
-	padding-bottom: 50%;
+.tile-image-container {
+	position: relative;
+	left: 15%;
+	top: 15%;
+
+	width: 70%;
+	height: 70%;
+}
+
+.game-board-tile img {
+	height: 100%;
+	width: 100%;
 }

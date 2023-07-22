@@ -23,7 +23,7 @@ export default function Location(props: LocationProps) {
 				width: `calc(${TILE_WIDTH}*2)`,
 			}}>
 				<>
-					{props.tiles.map((tile) => { return <Tile {...tile} /> })}
+					{props.tiles.map((tile, i) => { return <Tile {...tile} key={i} /> })}
 				</>
 			</div>
 			<div className="location-title-container" style={{
