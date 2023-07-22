@@ -12,14 +12,14 @@ const BOARD_LOCATIONS: LocationProps[] = [
     {
         name: "Uttoxeter", colour: darkblue, pos: [0.5655, 0.2745],
         tiles: [
-            { industry1: INDUSTRIES["ManuGoods"], industry2: INDUSTRIES["Beer"] },
+            { industry1: INDUSTRIES["Goods"], industry2: INDUSTRIES["Beer"] },
             { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["Beer"] }
         ]
     },
     {
         name: "Derby", colour: green, pos: [0.7575, 0.2985],
         tiles: [
-            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["ManuGoods"] },
+            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["Goods"] },
             { industry1: INDUSTRIES["Iron"] },
             { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["Beer"] }
         ]
@@ -27,7 +27,7 @@ const BOARD_LOCATIONS: LocationProps[] = [
     {
         name: "Belper", colour: green, pos: [0.756, 0.1445],
         tiles: [
-            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["ManuGoods"] },
+            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["Goods"] },
             { industry1: INDUSTRIES["Coal"] },
             { industry1: INDUSTRIES["Pottery"] }
         ],
@@ -36,10 +36,26 @@ const BOARD_LOCATIONS: LocationProps[] = [
     {
         name: "Leek", colour: darkblue, pos: [0.5535, 0.1165],
         tiles: [
-            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["ManuGoods"] },
+            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["Goods"] },
             { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["Coal"] },
         ]
-    }
+    },
+    {
+        name: "Birmingham", colour: red, pos: [0.6275, 0.7325],
+        tiles: [
+            { industry1: INDUSTRIES["Iron"] },
+            { industry1: INDUSTRIES["Goods"] },
+            { industry1: INDUSTRIES["Cotton"], industry2: INDUSTRIES["Goods"] },
+            { industry1: INDUSTRIES["Goods"] },
+        ]
+    },
+    {
+        name: "Worcester", colour: orange, pos: [0.363, 0.9255],
+        tiles: [
+            { industry1: INDUSTRIES["Cotton"] },
+            { industry1: INDUSTRIES["Cotton"] },
+        ]
+    },
 ];
 
 export default function Board() {

@@ -4,11 +4,11 @@ export const TILE_WIDTH = "48px";
 
 const INDUSTRY_LIST: Industry[] = [
 	{name: "Coal", mainIconPath: "coal.svg"},
-	{name: "Iron", mainIconPath: "Iron.svg"},
-	{name: "Cotton", mainIconPath: "Cotton.svg"},
-	{name: "ManuGoods", mainIconPath: "ManuGoods.svg"},
-	{name: "Pottery", mainIconPath: "Pottery.svg"},
-	{name: "Beer", mainIconPath: "Beer.svg"}
+	{name: "Iron", mainIconPath: "iron.svg"},
+	{name: "Cotton", mainIconPath: "cotton.svg"},
+	{name: "Goods", mainIconPath: "goods.svg"},
+	{name: "Pottery", mainIconPath: "pottery.svg"},
+	{name: "Beer", mainIconPath: "beer.svg"}
 ];
 
 export const INDUSTRY_ASSET_PATH = "/assets/industry/"

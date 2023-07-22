@@ -1,10 +1,10 @@
 .game-board-tile {
-	text-align: center;
+	padding: 3%;
 
 	position: relative;
 	box-sizing: border-box;
 
-	background-color: black;
+	background-color: rgb(35, 35, 35);
 	border: silver 0.15em solid;
 
 	border-radius: 5%;
@@ -12,14 +12,13 @@
 
 .tile-image-container {
 	position: relative;
-	left: 15%;
-	top: 15%;
-
-	width: 70%;
-	height: 70%;
+	
+	width: 100%;
+	height: 100%;
 }
 
-.game-board-tile img {
-	height: 100%;
-	width: 100%;
+.tile-image-container img {
+	margin: auto;
+	max-width: 100%;
+	max-height: 100%;
 }
