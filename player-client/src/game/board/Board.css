@@ -1,4 +1,5 @@
 .game-board {
+    position: relative;
     width: 1000px;
     height: 1000px;
 }

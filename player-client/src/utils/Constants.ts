@@ -1,2 +1,2 @@
-export const TILE_WIDTH = "80px";
+export const TILE_WIDTH = "46px";
 export const TILE2 = 8;
