@@ -2,9 +2,8 @@ import "./Tile.css"
 
 import { TILE_WIDTH } from '../../utils/Constants';
 import Image from "../global/Image";
-import { EmptyTile, PlayerTile } from "../../game/player/PlayerTiles";
+import { BoardTile, EmptyTile, PlayerTile } from "../../game/player/PlayerTiles";
 
-type BoardTile = EmptyTile | PlayerTile;
 const MULTIPLE_ICON_SCALE = 0.7;
 
 export default function Tile(props: { tileInstance: BoardTile }) {

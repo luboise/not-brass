@@ -1,5 +1,7 @@
 import { Industry, PlayerNum } from "utils/Types";
 
+export type BoardTile = EmptyTile | PlayerTile;
+
 interface CostSet {
 	money: number;
 	coal?: number;

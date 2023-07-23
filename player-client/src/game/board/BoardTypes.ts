@@ -5,6 +5,6 @@ export interface LocationProps {
 	name: string;
 	colour: Colour;
 	pos: BoardPos;
-	tiles: EmptyTile[];
+	tiles: BoardTile[];
 	wrapFrequency?: number;
 }
