@@ -1,5 +1,6 @@
 import boardBG from "/assets/board.jpg";
 import "./Board.css"
+import { useRef } from "react";
 
 import { default as Location } from "./Location";
 import { LocationProps } from "./BoardTypes";
@@ -59,13 +60,16 @@ const BOARD_LOCATIONS: LocationProps[] = [
 ];
 
 export default function Board() {
-    // const LOCATIONS = useRef([<Location {} />])
+    const ref = useRef<JSX.Element[]>(null);
+    if (!ref.current) {
+        ref.current = BOARD_LOCATIONS.map((locProps, i) => { return <Location {...locProps} key={i} /> });
+    }
 
     return (
         <div className="game-board" style={{
             backgroundImage: `url(${boardBG})`
         }}>
-            {BOARD_LOCATIONS.map((locProps, i) => { return <Location {...locProps} key={i} /> })}
+            { }
         </div>
     )
 }
