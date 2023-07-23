@@ -9,6 +9,8 @@ export type PlayerNum = 1 | 2 | 3 | 4;
 export interface Industry {
 	name: string,
 	mainIconPath: string,
+	resourceIconPath?: string,
+	resourceColour?: Colour,
 }
 
 export type IndustryRecord = Record<string, Industry>;

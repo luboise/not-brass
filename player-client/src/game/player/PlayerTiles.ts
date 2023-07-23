@@ -113,9 +113,9 @@ export class InvestmentTile extends PlayerTile {
 	#beerRequired: number;
 	#flipped: boolean;
 
-	constructor(owner: PlayerNum, ind: Industry, level: number, placementCosts: CostSet, flipValues: FlipValueSet, beerRequired: number){
+	constructor(owner: PlayerNum, ind: Industry, level: number, placementCosts: CostSet, flipValues: FlipValueSet, beerRequired?: number){
 		super(owner, ind, level, placementCosts, flipValues);
-		this.#beerRequired = beerRequired;
+		this.#beerRequired = beerRequired || 0;
 		this.#flipped = false;
 	}
 
