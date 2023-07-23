@@ -1,15 +1,10 @@
-import { Colour, BoardPos, Industry, PlayerNum } from "utils/Types"; 
+import { EmptyTile } from "../player/PlayerTiles";
+import { Colour, BoardPos } from "utils/Types"; 
 
 export interface LocationProps {
 	name: string;
 	colour: Colour;
 	pos: BoardPos;
-	tiles: TileOptions[];
+	tiles: EmptyTile[];
 	wrapFrequency?: number;
 }
-
-export interface TileOptions {
-	industry1: Industry;
-	industry2?: Industry;
-	player?: PlayerNum;
-};

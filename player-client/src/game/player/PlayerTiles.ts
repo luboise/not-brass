@@ -16,27 +16,42 @@ abstract class BaseTile{
 	#industry: Industry;
 
 	constructor(ind: Industry) {
-		this.#industry;
+		this.#industry = ind;
 	}
 
-	getIndustry(){
-		return this.#industry;
+	getIndustry(): Industry {
+		// Return copy of industry
+		return {...this.#industry};
 	}
 }
 
-abstract class PlayerTile extends BaseTile {
+// Tile for empty spots on the board
+export class EmptyTile extends BaseTile {
+	#extraIndustries: Industry[];
+
+	constructor(inds: [Industry, ...Industry[]]){
+		super(inds[0]);
+		this.#extraIndustries = inds.slice(1);
+	}
+
+	getIndustries(): Industry[] {
+		return [super.getIndustry(), ...this.#extraIndustries]
+	}
+}
+
+// Shared player tile for placing on the board
+export abstract class PlayerTile extends BaseTile {
 	#owner: PlayerNum;
 	#level: number;
-	#industry: Industry;
-	
 	#placementCosts: CostSet;
 	#flipValues: FlipValueSet;
 
-	constructor(owner: PlayerNum, level: number, industry: Industry, placementCosts: CostSet, flipValues: FlipValueSet){
-		this.#owner = owner;
-		this.#industry = industry;
-		this.#level = level;
+	constructor(owner: PlayerNum, ind: Industry, level: number, placementCosts: CostSet, flipValues: FlipValueSet){
+		// Send industry to base tile
+		super(ind);
 
+		this.#owner = owner;
+		this.#level = level;
 		this.#placementCosts = placementCosts;
 		this.#flipValues = flipValues;
 	}
@@ -44,14 +59,8 @@ abstract class PlayerTile extends BaseTile {
 	getOwner() {
 		return this.#owner;
 	}
-	getIndustry(){
-		return this.#industry.name;
-	}
 	getLevel(){
 		return this.#level;
-	}
-	getLinkValue(){
-		return this.#linkValue;
 	}
 
 	// Make copy using spread operator
@@ -66,11 +75,12 @@ abstract class PlayerTile extends BaseTile {
 	abstract isFlipped(): boolean;
 }
 
-class ResourceTile extends PlayerTile {
+// Resource player tile that offers resources to other players (coal, iron, beer, etc)
+export class ResourceTile extends PlayerTile {
 	#quantity: number;
 
-	constructor(owner: PlayerNum, level: number, industry: Industry, placementCosts: CostSet, flipValues: FlipValueSet, initialQuantity: number){
-		super(owner, level, industry, placementCosts, flipValues);
+	constructor(owner: PlayerNum, ind: Industry, level: number, placementCosts: CostSet, flipValues: FlipValueSet, initialQuantity: number){
+		super(owner, ind, level, placementCosts, flipValues );
 		this.#quantity = initialQuantity;
 	}
 
@@ -84,7 +94,8 @@ class ResourceTile extends PlayerTile {
 		} else {
 			this.#quantity -= amount;
 			if (this.#quantity === 0) {
-				
+				// TODO: ADD CALLBACK FOR PLAYER INCOME INCREASING 
+				console.log("Missing tile flip input callback.")
 			}
 			return true;
 		}
@@ -93,11 +104,30 @@ class ResourceTile extends PlayerTile {
 	isFlipped() {
 		return this.#quantity === 0;
 	}
-
-	
 }
 
-class InvestmentTile extends PlayerTile {
+// Investment tile that does not offer a resource and is manually flipped
+export class InvestmentTile extends PlayerTile {
 	#beerRequired: number;
+	#flipped: boolean;
 
+	constructor(owner: PlayerNum, ind: Industry, level: number, placementCosts: CostSet, flipValues: FlipValueSet, beerRequired: number){
+		super(owner, ind, level, placementCosts, flipValues);
+		this.#beerRequired = beerRequired;
+		this.#flipped = false;
+	}
+
+	isFlipped(): boolean {
+		return this.#flipped;
+	}
+
+	getBeerRequired(): number {
+		return this.#beerRequired;
+	}
+
+	// Returns income difference
+	sell(): number {
+		this.#flipped = true;
+		return this.getFlipValues().incomeAmount;
+	}
 }

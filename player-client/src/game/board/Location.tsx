@@ -38,7 +38,7 @@ export default function Location(props: LocationProps) {
 		<div className='game-board-location' style={locationStyle}>
 			<div className="location-tile-container" style={containerWidthStyling}>
 				<>
-					{props.tiles.map((tile, i) => { return <Tile {...tile} key={i} /> })}
+					{props.tiles.map((tile, i) => { return <Tile tileInstance={tile} key={i} /> })}
 				</>
 			</div>
 			<div className="location-title-container" style={{
