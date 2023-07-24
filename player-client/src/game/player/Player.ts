@@ -48,7 +48,7 @@ export class Player {
 
 		for (let i = 0; i < 2; i++) {
 			tiles.push(
-				new ResourceTile(num, INDUSTRIES.coal, 1, 2))
+				new ResourceTile(num, INDUSTRIES.coal, 1))
 		}
 
 		return tiles;

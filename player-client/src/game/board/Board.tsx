@@ -62,10 +62,8 @@ const BOARD_LOCATIONS: LocationProps[] = [
         name: "Testing", colour: orange, pos: [0.2, 0.5],
         tiles: [
             new EmptyTile([INDUSTRIES["Cotton"]]),
-            new InvestmentTile(1, INDUSTRIES["Cotton"], 1, { money: 13 }, {
-                linkScore: 1, flipScore: 5, incomeAmount: 5
-            },),
-            new ResourceTile(1, INDUSTRIES["Coal"], 2, ;
+            new InvestmentTile(1, INDUSTRIES["Cotton"], 1),
+            new ResourceTile(1, INDUSTRIES["Coal"], 1)
         ]
     },
 ];

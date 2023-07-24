@@ -69,9 +69,9 @@ export abstract class PlayerTile extends BaseTile {
 export class ResourceTile extends PlayerTile {
 	#quantity: number;
 
-	constructor(owner: PlayerNum, ind: Industry, level: number, initialQuantity: number) {
+	constructor(owner: PlayerNum, ind: Industry, level: number,) {
 		super(owner, ind, level);
-		this.#quantity = initialQuantity;
+		this.#quantity = ind.tiledata[level].levelValues.initialQuantity || 0;
 	}
 
 	getQuantity() {
