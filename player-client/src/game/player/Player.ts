@@ -1,5 +1,5 @@
-import { Colour, Industry, PlayerNum } from "../../utils/Types";
-import { PlayerTile, ResourceTile } from "./PlayerTiles";
+import { Colour, PlayerNum } from "../../utils/Types";
+import { PlayerTile, makeTile } from "./PlayerTiles";
 import { INDUSTRIES } from "../../utils/Constants";
 
 export function generatePlayers(playerCount: number): Player[] {
@@ -48,7 +48,7 @@ export class Player {
 
 		for (let i = 0; i < 2; i++) {
 			tiles.push(
-				new ResourceTile(num, INDUSTRIES.coal, 1))
+				makeTile(num, INDUSTRIES.coal, 1))
 		}
 
 		return tiles;

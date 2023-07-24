@@ -121,3 +121,11 @@ export class InvestmentTile extends PlayerTile {
 		return this.getFlipValues().incomeAmount;
 	}
 }
+
+export function makeTile(playerNum: PlayerNum, ind: Industry, level: 1): PlayerTile {
+	if (ind.industryType == "Resource") {
+		return new ResourceTile(playerNum, ind, level);
+	} else {
+		return new InvestmentTile(playerNum, ind, level);
+	}
+}

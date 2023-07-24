@@ -6,7 +6,8 @@ import { default as Location } from "./Location";
 import { LocationProps } from "./BoardTypes";
 import { INDUSTRIES } from "../../utils/Constants";
 import { Colour } from "utils/Types";
-import { EmptyTile, InvestmentTile, PlayerTile, ResourceTile } from "../player/PlayerTiles";
+import { EmptyTile, makeTile, PlayerTile, } from "../player/PlayerTiles";
+
 
 const [darkblue, green, red, orange, purple]: Colour[] = ["#0000ff", "#3a5f3a", "#660000", "#c46210", "#483248"];
 
@@ -62,8 +63,8 @@ const BOARD_LOCATIONS: LocationProps[] = [
         name: "Testing", colour: orange, pos: [0.2, 0.5],
         tiles: [
             new EmptyTile([INDUSTRIES["Cotton"]]),
-            new InvestmentTile(1, INDUSTRIES["Cotton"], 1),
-            new ResourceTile(1, INDUSTRIES["Coal"], 1)
+            makeTile(1, INDUSTRIES["Cotton"], 1),
+            makeTile(1, INDUSTRIES["Coal"], 1)
         ]
     },
 ];
