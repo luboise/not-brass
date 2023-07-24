@@ -10,7 +10,7 @@ const DEFAULT_WRAP_FREQUENCY = 2;
 export default function Location(props: LocationProps) {
 	// Number of tiles we want to shift by (1 per 2 tiles)
 	let tileStackHeight;
-	let containerWidthStyling: React.CSSProperties = {};
+	const containerWidthStyling: React.CSSProperties = {};
 
 	// If wrap frequency is 0, do not wrap (stack is 1 tall)
 	if (props.wrapFrequency === 0) {

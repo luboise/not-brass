@@ -1,20 +1,10 @@
 import { Industry, PlayerNum } from "utils/Types";
+import { CostSet, FlipValueSet } from "utils/Types";
+
 
 export type BoardTile = EmptyTile | PlayerTile;
 
-interface CostSet {
-	money: number;
-	coal?: number;
-	iron?: number;
-}
-
-interface FlipValueSet {
-	linkScore: number;
-	flipScore: number;
-	incomeAmount: number;
-}
-
-abstract class BaseTile{
+abstract class BaseTile {
 	#industry: Industry;
 
 	constructor(ind: Industry) {
@@ -23,7 +13,7 @@ abstract class BaseTile{
 
 	getIndustry(): Industry {
 		// Return copy of industry
-		return {...this.#industry};
+		return { ...this.#industry };
 	}
 }
 
@@ -31,7 +21,7 @@ abstract class BaseTile{
 export class EmptyTile extends BaseTile {
 	#extraIndustries: Industry[];
 
-	constructor(inds: [Industry, ...Industry[]]){
+	constructor(inds: [Industry, ...Industry[]]) {
 		super(inds[0]);
 		this.#extraIndustries = inds.slice(1);
 	}
@@ -45,33 +35,31 @@ export class EmptyTile extends BaseTile {
 export abstract class PlayerTile extends BaseTile {
 	#owner: PlayerNum;
 	#level: number;
-	#placementCosts: CostSet;
-	#flipValues: FlipValueSet;
 
-	constructor(owner: PlayerNum, ind: Industry, level: number, placementCosts: CostSet, flipValues: FlipValueSet){
+	constructor(owner: PlayerNum, ind: Industry, level: number) {
 		// Send industry to base tile
 		super(ind);
 
 		this.#owner = owner;
 		this.#level = level;
-		this.#placementCosts = placementCosts;
-		this.#flipValues = flipValues;
 	}
 
 	getOwner() {
 		return this.#owner;
 	}
-	getLevel(){
+	getLevel() {
 		return this.#level;
 	}
 
 	// Make copy using spread operator
-	getCosts(){
-		return {...this.#placementCosts}
+	getCosts() {
+		const tileData = this.getIndustry().tiledata[this.#level];
+		return { ...tileData.placementCosts }
 	}
 	// Make copy using spread operator
-	getFlipValues(){
-		return {...this.#flipValues}
+	getFlipValues() {
+		const tileData = this.getIndustry().tiledata[this.#level];
+		return { ...tileData.flipValues };
 	}
 
 	abstract isFlipped(): boolean;
@@ -81,17 +69,17 @@ export abstract class PlayerTile extends BaseTile {
 export class ResourceTile extends PlayerTile {
 	#quantity: number;
 
-	constructor(owner: PlayerNum, ind: Industry, level: number, placementCosts: CostSet, flipValues: FlipValueSet, initialQuantity: number){
-		super(owner, ind, level, placementCosts, flipValues );
+	constructor(owner: PlayerNum, ind: Industry, level: number, initialQuantity: number) {
+		super(owner, ind, level);
 		this.#quantity = initialQuantity;
 	}
 
-	getQuantity(){
+	getQuantity() {
 		return this.#quantity;
 	}
 
 	useResource(amount: number): boolean {
-		if (amount > this.#quantity){
+		if (amount > this.#quantity) {
 			return false;
 		} else {
 			this.#quantity -= amount;
@@ -113,8 +101,8 @@ export class InvestmentTile extends PlayerTile {
 	#beerRequired: number;
 	#flipped: boolean;
 
-	constructor(owner: PlayerNum, ind: Industry, level: number, placementCosts: CostSet, flipValues: FlipValueSet, beerRequired?: number){
-		super(owner, ind, level, placementCosts, flipValues);
+	constructor(owner: PlayerNum, ind: Industry, level: number, beerRequired?: number) {
+		super(owner, ind, level);
 		this.#beerRequired = beerRequired || 0;
 		this.#flipped = false;
 	}
